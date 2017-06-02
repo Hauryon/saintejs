@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import { Menu } from 'semantic-ui-react'
 import Home from './home/Home';
 import Events from './events/Events';
 import EventsForm from './eventform/EventsForm';
@@ -13,12 +14,11 @@ export default class App extends Component {
     return (
       <Router>
         <div>
-          <ul>
-            <li><Link to="/">Accueil</Link></li>
-            <li><Link to="/events">Evennements</Link></li>
-            <li><Link to="/addevent">Ajout</Link></li>
-          </ul>
-          <hr />
+          <Menu inverted>
+            <Link className="item" to="/">Accueil</Link>
+            <Link className="item" to="/events">Evennements</Link>
+            <Link className="item" to="/addevent">Ajout</Link>
+         </Menu>
 
           <Route exact path="/" component={Home} />
           <Route path="/events" component={Events} />
