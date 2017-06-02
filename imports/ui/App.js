@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 import Home from './home/Home';
-import Events from './events/Events';
+import EventsList from './events/EventsList';
 import EventsForm from './eventform/EventsForm';
 
 export default class App extends Component {
@@ -21,7 +21,7 @@ export default class App extends Component {
          </Menu>
 
           <Route exact path="/" component={Home} />
-          <Route path="/events" component={Events} />
+          <Route path="/events" component={EventsList} />
           <Route path="/addevent" component={EventsForm} />
 
         </div>
