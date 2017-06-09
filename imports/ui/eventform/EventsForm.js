@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 
 export default class EventsForm extends Component {
-  state = {title: "", description: "", date: moment()}
+  state = {title: "", description: "", date: moment(), place: "", time: "", level: ""}
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value })
   }
@@ -18,21 +18,20 @@ export default class EventsForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { title, description, date } = this.state
-    Meteor.call('events.add', {title, description, date: date.toDate()}, (err, res) => {
+    const { title, description, date, place, time, level } = this.state
+    Meteor.call('events.add', {title, description, date: date.toDate(), place, time: parseInt(time), level}, (err, res) => {
       if(err) {
         console.log(err);
       } else {
-        this.setState({title: "", description: "", date: moment()})
+        this.setState({title: "", description: "", date: moment(), place: "", time: "", level: ""})
       }
     });
-
-    
   }
+  
   render() {
     return (
       <div>
-         <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <Form.Group widths='equal'>
             <Form.Input label='Titre' placeholder='Titre' value={this.state.title} name="title" onChange={this.handleChange}/>
             <div className="field">
@@ -42,10 +41,14 @@ export default class EventsForm extends Component {
                 selected={this.state.date}
                 onChange={this.handleDate}
               />
-            </div>
-            
+            </div>                       
           </Form.Group>
           <Form.TextArea label='Description' placeholder='Description' value={this.state.description} name="description" onChange={this.handleChange}/>
+          <Form.Group widths='equal'>
+            <Form.Input label='Lieu' placeholder='Lieu' value={this.state.place} name="place" onChange={this.handleChange}/>
+            <Form.Input label='Heure' placeholder='Heure' value={this.state.time} name="time" onChange={this.handleChange}/>
+            <Form.Input label='Niveau' placeholder='Niveau' value={this.state.level} name="level" onChange={this.handleChange}/>
+          </Form.Group>
           <Form.Button>Créer</Form.Button>
         </Form>
       </div>

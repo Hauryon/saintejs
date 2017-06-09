@@ -4,17 +4,16 @@ import {Events} from '../../api/events/events';
 import EventSingle from './EventSingle';
 import { List } from 'semantic-ui-react';
 
-
 class EventsList extends Component {
   render() {
     return (
       <div>
-       <List>
-          {this.props.events.map((event) => {
-            return <EventSingle key={event._id} event={event}/>
-          })}
-        </List>
-      </div>
+        <List>
+            {this.props.events.map((event) => {
+              return <EventSingle key={event._id} event={event}/>
+            })}
+          </List>
+        </div>
     );
   }
 }

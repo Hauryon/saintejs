@@ -1,5 +1,20 @@
 .event-single {
-  border: 1px solid black;
+  text-align: justify;
+  margin-top: 5px;
   margin-bottom: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  width:85%;
+  padding:10px;
+  border-bottom: 1px solid #545454;
 }
 
+.title-event {
+  font-weight: bold;
+  font-size: 22px; 
+  
+}
+.event-description {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
