@@ -8,13 +8,26 @@
   padding:10px;
   border-bottom: 1px solid #545454;
 }
-
 .title-event {
   font-weight: bold;
   font-size: 22px; 
-  
 }
 .event-description {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+.user-single {
+  text-align: justify;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width:85%;
+  padding:10px;
+  border: 1px solid #545454;
+}
+.username {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px; 
 }

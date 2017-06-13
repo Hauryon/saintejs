@@ -4,8 +4,6 @@ import { Redirect } from 'react-router-dom';
 import LogIn from './LogIn';
 import {Form} from 'semantic-ui-react';
 
-
-
 class Profile extends Component {
   handleClick = () => {
     Meteor.logout()

@@ -12,9 +12,9 @@ class EventsList extends Component {
             {this.props.events.map((event) => {
               return <EventSingle key={event._id} event={event}/>
             })}
-          </List>
-        </div>
-    );
+        </List>
+      </div>
+  );
   }
 }
 
