@@ -13,7 +13,7 @@ import LogIn from './account/LogIn';
 import Profile from './account/Profile';
 import { createContainer } from 'meteor/react-meteor-data';
 import UsersList from './users/UsersList';
-
+import CategoryForm from './categoryForm/CategoryForm';
 
 class App extends Component {
   render() {
@@ -35,6 +35,7 @@ class App extends Component {
               :
               <Link className="item" to="/login">Login</Link>
             }
+             <Link className="item" to="/category">Catégories</Link>
                                      
          </Menu>
 
@@ -45,9 +46,9 @@ class App extends Component {
           <Route path="/login" component={LogIn} />
           <Route path="/profile" component={Profile} />
           <Route path="/users" component={UsersList} />
+          <Route path="/category" component={CategoryForm} />
         </div>
         
-
       </Router>
     );
   }
