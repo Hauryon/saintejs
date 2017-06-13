@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { List, Grid, Card } from 'semantic-ui-react';
+import { List, Card } from 'semantic-ui-react';
 import moment from 'moment';
 
 export default class EventSingle extends Component {

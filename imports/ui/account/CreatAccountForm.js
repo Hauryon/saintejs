@@ -5,7 +5,7 @@ import {Meteor} from 'meteor/meteor'
 
 export default class CreatAccountForm extends Component {
 
-  state = {email:"", password:"", verifypassword:""}
+  state = {username:"", email:"", password:"", verifypassword:""}
 
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value })
@@ -13,14 +13,18 @@ export default class CreatAccountForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault() 
-    const { email, password, verifypassword } = this.state;
+    const { username, email, password, verifypassword } = this.state;
     console.log(email);
     console.log(password);
+
     if (this.state.password === this.state.verifypassword){
-      Accounts.createUser({email, password}, (err, res) => {
+      Accounts.createUser({username, email, password}, (err, res) => {
         if(err) {
           console.log(err);
         }
+          if(this.state.username === "") {
+            alert("Entrez un Pseudo")
+          }
       });
     } else {
       alert("probleme mdp");
@@ -31,6 +35,7 @@ export default class CreatAccountForm extends Component {
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
+          <Form.Input label='Pseudo' placeholder='Pseudo' name='username' type='text' value={this.state.username} onChange={this.handleChange}/>
           <Form.Input label='Mail' placeholder='Mail' name='email' type='email' value={this.state.email} onChange={this.handleChange}/>
           <Form.Input label='Mot de passe' placeholder='Mot de passe' name='password' type='password' value={this.state.password} onChange={this.handleChange}/>
           <Form.Input label='Vérification mot de passe' placeholder='Mot de passe' name='verifypassword' type='password' value={this.state.verifypassword} onChange={this.handleChange}/>

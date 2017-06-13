@@ -12,6 +12,7 @@ import CreatAccountForm from './account/CreatAccountForm';
 import LogIn from './account/LogIn';
 import Profile from './account/Profile';
 import { createContainer } from 'meteor/react-meteor-data';
+import Users from './account/Users';
 
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             <Link className="item" to="/">Accueil</Link>
             <Link className="item" to="/events">Evennements</Link>
             <Link className="item" to="/addevent">Ajout</Link>
+            
             {this.props.loggedIn ?
               null
               :
@@ -33,7 +35,13 @@ class App extends Component {
               :
               <Link className="item" to="/login">Login</Link>
             }
-            
+            {this.props.loggedIn ?
+              <Link className="item" to="/users">Utilisateurs</Link>
+              :
+              null
+            }
+
+              
             
          </Menu>
 
@@ -43,6 +51,7 @@ class App extends Component {
           <Route path="/creataccount" component={CreatAccountForm} />
           <Route path="/login" component={LogIn} />
           <Route path="/profile" component={Profile} />
+          <Route path="/users" component={Users} />
         </div>
         
 
